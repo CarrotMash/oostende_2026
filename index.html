@@ -9,20 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IM+Fell+English:ital@0;1&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--fs:1rem;--black:#1a1a1a;--gold:#C8971F;--red:#c0392b;--navy:#1a3a6e;--cream:#F5F2EA;--white:#FFFFFF;--grey:#6b6b6b;--light:#E8E3D8;--teal:#1a6b6b;--bg:var(--cream);--surface:var(--white);--text:var(--black);--border:var(--light);--muted:var(--grey)}
-.dark{--cream:#0d1820;--white:#122030;--black:#f0f4f8;--grey:#a8c0d4;--light:#1c2e40;--bg:#0d1820;--surface:#122030;--text:#e8f0f8;--border:#1c2e40;--muted:#8fa8c0}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{font-size:var(--fs)}
 body{font-family:"Source Sans 3",sans-serif;background:var(--cream);color:var(--black);min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
 .sh{font-family:"Playfair Display",serif;font-size:1.55rem;font-weight:700;color:var(--navy);margin-bottom:5px;border-left:4px solid var(--gold);padding-left:12px}
-.dark .sh{color:var(--gold)}
 .ssh{font-family:"Source Sans 3",sans-serif;color:var(--muted);font-size:.95rem;margin-bottom:16px;padding-left:16px}
 .ct{font-family:"Playfair Display",serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:5px;padding-left:8px}
-.dark .ct{color:var(--gold)}
 .cx{font-family:"Source Sans 3",sans-serif;font-size:.97rem;line-height:1.7;color:var(--black);padding-left:8px}
 .cm{font-family:"Source Sans 3",sans-serif;font-size:.85rem;line-height:1.5;color:var(--muted);padding-left:8px;margin-bottom:6px}
-.dark .cx{color:var(--text)}
 a.maplink{display:inline-flex;align-items:center;gap:4px;font-size:.82rem;font-weight:700;color:var(--navy);text-decoration:none;background:rgba(26,58,110,.1);border:1px solid rgba(26,58,110,.25);border-radius:12px;padding:4px 10px;margin:5px 0 3px 8px;transition:all .2s}
-.dark a.maplink{color:var(--gold);background:rgba(200,151,31,.1);border-color:rgba(200,151,31,.3)}
 a.maplink:hover{background:var(--navy);color:white}
 a.weblink{display:inline-flex;align-items:center;gap:4px;font-size:.82rem;font-weight:700;color:var(--teal);text-decoration:none;background:rgba(26,107,107,.1);border:1px solid rgba(26,107,107,.25);border-radius:12px;padding:4px 10px;margin:5px 0 3px 4px;transition:all .2s}
 a.weblink:hover{background:var(--teal);color:white}
@@ -99,7 +94,6 @@ a.weblink:hover{background:var(--teal);color:white}
 .msheet{position:absolute;bottom:0;left:0;right:0;background:var(--surface);border-radius:20px 20px 0 0;max-height:90vh;overflow-y:auto;padding-bottom:16px}
 .msh{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 8px;border-bottom:1px solid var(--border)}
 .msh-title{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700;color:var(--navy)}
-.dark .msh-title{color:var(--gold)}
 .xcl{background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--muted)}
 .mlbl{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);padding:12px 16px 6px}
 .mtiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 12px 6px}
@@ -107,7 +101,6 @@ a.weblink:hover{background:var(--teal);color:white}
 .mt:hover{background:rgba(200,151,31,.18);border-color:var(--gold)}
 .mti{font-size:1.7rem;display:block}
 .mtl{font-size:.92rem;font-weight:700;font-family:"Source Sans 3",sans-serif;color:var(--black)}
-.dark .mtl{color:var(--text)}
 .mts{font-size:.72rem;color:var(--muted);font-family:"Source Sans 3",sans-serif}
 .mfoot{text-align:center;padding:14px 16px;font-size:.75rem;color:var(--muted);font-family:"Source Sans 3",sans-serif}
 /* INNER APP – Hero ist position:fixed, daher kein extra top-Abstand nötig */
@@ -127,7 +120,6 @@ body.hero-active{overflow:hidden;height:100vh}
 .tg{background:#fff3cd;color:#856404}.tb{background:#cfe2ff;color:#084298}.tr{background:#d1e7dd;color:#0a3622}.ts{background:#f8d7da;color:#842029}.tn{background:#e2d9f3;color:#4a1d96}
 /* PREIS BADGE */
 .preis{display:inline-flex;align-items:center;gap:3px;background:rgba(200,151,31,.15);border:1px solid rgba(200,151,31,.35);border-radius:12px;padding:2px 8px;font-size:.72rem;font-weight:700;color:#7a5c0a;margin-left:8px;font-family:"Source Sans 3",sans-serif}
-.dark .preis{color:var(--gold);background:rgba(200,151,31,.12)}
 /* WETTER */
 .wbox{background:linear-gradient(135deg,#1a3a6e,#1a6b6b);color:white;border-radius:10px;padding:18px;margin-bottom:14px}
 .wtemp{font-family:"Playfair Display",serif;font-size:3rem;font-weight:900;line-height:1}
@@ -142,7 +134,6 @@ body.hero-active{overflow:hidden;height:100vh}
 .bform{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:12px}
 .bform select,.bform input{width:100%;border:1px solid var(--border);border-radius:4px;padding:8px 10px;font-family:"Source Sans 3",sans-serif;font-size:.9rem;background:var(--cream);color:var(--black);margin-bottom:8px}
 .bform label{font-size:.78rem;font-weight:600;color:var(--navy);display:block;margin-bottom:3px;font-family:"Source Sans 3",sans-serif}
-.dark .bform label{color:var(--gold)}
 .addbtn{background:var(--navy);color:white;border:none;padding:10px 20px;border-radius:4px;font-family:"Source Sans 3",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:1px;cursor:pointer;width:100%;font-size:.85rem}
 .addbtn:hover{background:var(--gold);color:var(--black)}
 .bdel{background:none;border:none;color:var(--red);cursor:pointer;font-size:.9rem}
@@ -150,11 +141,9 @@ body.hero-active{overflow:hidden;height:100vh}
 .bli:last-child{border-bottom:none}
 .bld{flex:1}
 .bla{font-family:"Playfair Display",serif;font-weight:700;color:var(--navy)}
-.dark .bla{color:var(--gold)}
 .bcat-pill{display:inline-flex;align-items:center;gap:4px;background:var(--border);border-radius:12px;padding:2px 8px;font-size:.72rem;font-weight:600;margin-right:4px}
 .dflt{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
 .dfb{padding:4px 10px;border:2px solid var(--navy);border-radius:20px;background:none;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .2s;color:var(--black)}
-.dark .dfb{color:var(--text)}
 .dfb.active,.dfb:hover{background:var(--navy);color:white}
 /* CHECKLIST */
 .clday{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
@@ -185,10 +174,8 @@ body.hero-active{overflow:hidden;height:100vh}
 .evdate{font-family:"Playfair Display",serif;font-size:.9rem;font-weight:900;color:var(--gold);min-width:56px;text-align:center;padding-top:2px;line-height:1.45;flex-shrink:0}
 .evbody{flex:1}
 .evtitle{font-size:1rem;font-weight:700;font-family:"Source Sans 3",sans-serif;color:var(--black);margin-bottom:3px}
-.dark .evtitle{color:var(--text)}
 .evinfo{font-size:.88rem;color:var(--muted);font-family:"Source Sans 3",sans-serif;line-height:1.6}
 .evbadge{display:inline-flex;align-items:center;background:rgba(200,151,31,.15);border:1px solid rgba(200,151,31,.4);border-radius:12px;padding:2px 10px;font-size:.76rem;font-weight:700;font-family:"Source Sans 3",sans-serif;color:var(--navy);margin-top:4px}
-.dark .evbadge{color:var(--gold)}
 .evbadge.free{background:rgba(26,107,107,.15);border-color:rgba(26,107,107,.4);color:var(--teal)}
 /* DIVIDER */
 .bdiv{display:flex;align-items:center;gap:10px;margin:16px 0}
@@ -208,19 +195,15 @@ body.hero-active{overflow:hidden;height:100vh}
 .tipico{font-size:1.7rem;flex-shrink:0;width:38px;text-align:center}
 .tiptx{font-size:.97rem;line-height:1.7;font-family:"Source Sans 3",sans-serif}
 .tiptx strong{display:block;color:var(--navy);font-weight:700;margin-bottom:3px}
-.dark .tiptx strong{color:var(--gold)}
 /* FILTER */
 .fltr{padding:4px 12px;border:2px solid var(--navy);border-radius:20px;background:none;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;color:var(--black)}
-.dark .fltr{color:var(--text);border-color:var(--gold)}
 .fltr.active,.fltr:hover{background:var(--navy);color:white}
 .rfb{padding:7px 14px;border:2px solid var(--navy);border-radius:20px;background:none;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;color:var(--black)}
-.dark .rfb{color:var(--text)}
 .rfb.active,.rfb:hover{background:var(--navy);color:white}
 .rf{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 /* AUSFLUG KARTEN */
 .aucard{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:12px;box-shadow:2px 2px 0 var(--border)}
 .aucard .dist{display:inline-flex;align-items:center;background:rgba(26,58,110,.1);border-radius:10px;padding:2px 10px;font-size:.8rem;font-weight:700;color:var(--navy);margin-left:8px}
-.dark .aucard .dist{color:var(--gold);background:rgba(200,151,31,.1)}
 /* NAV */
 .bnav{position:fixed;bottom:0;left:0;right:0;background:var(--navy);display:none;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--gold);z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.4)}
 .bnav.vis{display:grid}
@@ -257,11 +240,10 @@ body.hero-active{overflow:hidden;height:100vh}
   <img class="hero-poster" src="poster_oostende.jpg" alt="Belgian Watering Places Poster" onerror="this.style.background='#b8ab8a'">
   <!-- Vignette-Overlay für Lesbarkeit -->
   <div class="hero-overlay"></div>
-  <!-- Controls oben rechts: A-, A+, Dark -->
+  <!-- Controls oben rechts: A−, A+ -->
   <div class="hero-controls">
     <button class="hctrl-btn" onclick="changeFontSize(-1)" title="Schrift kleiner">A−</button>
     <button class="hctrl-btn" onclick="changeFontSize(1)" title="Schrift größer">A+</button>
-    <button class="hctrl-btn" id="dm-toggle" onclick="toggleDarkMode()">🌙 Dark</button>
   </div>
   <!-- Content-Block: kompakt unten, alles ohne Scrollen sichtbar -->
   <div class="hcontent">
@@ -992,11 +974,7 @@ body.hero-active{overflow:hidden;height:100vh}
 <script>
 // Hero-Start: body blockiert Scrollen solange Hero sichtbar
 document.body.classList.add('hero-active');
-// ══ DARK MODE ══
-var DARK = localStorage.getItem('oo26_dark') === '1';
-function applyDarkMode(){document.documentElement.classList.toggle('dark',DARK);var b=document.getElementById('dm-toggle');if(b)b.textContent=DARK?'☀️ Hell':'🌙 Dark';}
-function toggleDarkMode(){DARK=!DARK;localStorage.setItem('oo26_dark',DARK?'1':'0');applyDarkMode();}
-applyDarkMode();
+
 
 // ══ OFFLINE ══
 var ONLINE=navigator.onLine;
@@ -1143,23 +1121,153 @@ function toggleCL(idx){var d=getCLData();var key='day'+CL_DAY;var c=d[key]||[];v
 function addClItem(){var v=document.getElementById('clnew').value.trim();if(!v)return;var d=getCLData();var k='day'+CL_DAY+'_custom';if(!d[k])d[k]=[];d[k].push(v);saveCLData(d);document.getElementById('clnew').value='';renderCL();showToast('✓ Item hinzugefügt');}
 
 // ══ TAGEBUCH ══
+// ══ TAGEBUCH MIT FOTO-FUNKTION ══
 var DK='oo26_diary';
 var DAYS=[];
-(function(){var start=new Date('2026-07-16');var wn=['So','Mo','Di','Mi','Do','Fr','Sa'];for(var i=0;i<46;i++){var d=new Date(start);d.setDate(d.getDate()+i);DAYS.push({label:'Tag '+(i+1),date:wn[d.getDay()]+' '+d.getDate()+'.'+(d.getMonth()+1)+'.2026'});}})();
+(function(){
+  var start=new Date('2026-07-16');
+  var wn=['So','Mo','Di','Mi','Do','Fr','Sa'];
+  for(var i=0;i<46;i++){
+    var d=new Date(start);d.setDate(d.getDate()+i);
+    DAYS.push({label:'Tag '+(i+1),date:wn[d.getDay()]+' '+d.getDate()+'.'+(d.getMonth()+1)+'.2026'});
+  }
+})();
 var OPEN_DAY=null;
+
 function getDiaryData(){try{return JSON.parse(localStorage.getItem(DK)||'{}');}catch(e){return{};}}
-function saveDiaryEntry(day,text,stars){var d=getDiaryData();d['day'+day]={text:text,stars:stars};localStorage.setItem(DK,JSON.stringify(d));}
+
+// Speichert Text, Sterne UND Foto (Base64) – vorhandenes Foto bleibt erhalten wenn photo===undefined
+function saveDiaryEntry(day,text,stars,photo){
+  var d=getDiaryData();
+  var existing=d['day'+day]||{};
+  d['day'+day]={
+    text:text,
+    stars:stars,
+    photo:(photo!==undefined)?photo:(existing.photo||null)
+  };
+  try{
+    localStorage.setItem(DK,JSON.stringify(d));
+    return true;
+  }catch(err){
+    // LocalStorage voll
+    showToast('⚠️ Speicher voll – Foto zu groß!');
+    // Eintrag ohne Foto retten
+    d['day'+day].photo=existing.photo||null;
+    localStorage.setItem(DK,JSON.stringify(d));
+    return false;
+  }
+}
+
 function loadDiary(){
   var d=getDiaryData();
   document.getElementById('dcontainer').innerHTML=DAYS.map(function(day,i){
-    var e=d['day'+i]||{};var hs=e.text&&e.text.trim();var stars=e.stars||0;
+    var e=d['day'+i]||{};
+    var hasText=e.text&&e.text.trim();
+    var hasPhoto=!!e.photo;
+    var stars=e.stars||0;
     var ss=stars>0?' '+'⭐'.repeat(stars):'';
-    return'<div class="dday"><div class="ddhd" onclick="toggleDay('+i+')"><div><div class="ddtl">'+day.label+ss+'</div><div class="dddt">'+day.date+'</div></div><div class="ddst">'+(hs?'📝':'○')+'</div></div><div class="ddbody'+(OPEN_DAY===i?' open':'')+'"><textarea class="dta" id="dtext-'+i+'" placeholder="Was haben wir heute erlebt? Highlights, Eindrücke…">'+(e.text||'')+'</textarea><div style="display:flex;gap:6px;margin-bottom:8px">'+[1,2,3,4,5].map(function(s){return'<button style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:'+(stars>=s?'#C8971F':'#ccc')+';" onclick="setStar('+i+','+s+')">'+(stars>=s?'⭐':'☆')+'</button>';}).join('')+'</div><button class="savebtn" onclick="saveDay('+i+')">Speichern</button></div></div>';
+    // Status-Icon im Header
+    var statusIco=(hasText&&hasPhoto)?'📝📷':(hasPhoto?'📷':(hasText?'📝':'○'));
+    // Foto-Bereich
+    var photoHtml='';
+    if(hasPhoto){
+      photoHtml='<div style="margin:10px 0 6px">'
+        +'<img src="'+e.photo+'" style="width:100%;max-height:240px;object-fit:cover;border-radius:8px;border:2px solid #C8971F;display:block">'
+        +'</div>';
+    }
+    // Foto-Buttons
+    var fotoBtnLabel=hasPhoto?'📷 Foto ändern':'📷 Foto hinzufügen';
+    var fotoButtons='<div style="display:flex;gap:8px;margin:8px 0 4px;flex-wrap:wrap">'
+      +'<button onclick="triggerPhoto('+i+')" style="flex:1;background:#1a3a6e;color:white;border:none;border-radius:8px;padding:12px 10px;font-size:.95rem;font-weight:700;cursor:pointer;min-height:52px">'+fotoBtnLabel+'</button>'
+      +(hasPhoto?'<button onclick="deletePhoto('+i+')" style="background:#c0392b;color:white;border:none;border-radius:8px;padding:12px 14px;font-size:.9rem;font-weight:700;cursor:pointer;min-height:52px;min-width:52px">❌</button>':'')
+      +'</div>'
+      // verstecktes file-input
+      +'<input type="file" accept="image/*" capture="environment" id="photo-input-'+i+'" style="display:none" onchange="handlePhoto(event,'+i+')">';
+    // Sterne
+    var starHtml='<div style="display:flex;gap:6px;margin-bottom:10px">'
+      +[1,2,3,4,5].map(function(s){
+        return'<button style="background:none;border:none;font-size:1.5rem;cursor:pointer;min-height:48px;min-width:40px;color:'+(stars>=s?'#C8971F':'#ccc')+';" onclick="setStar('+i+','+s+')">'+(stars>=s?'⭐':'☆')+'</button>';
+      }).join('')+'</div>';
+
+    return '<div class="dday">'
+      +'<div class="ddhd" onclick="toggleDay('+i+')">'
+        +'<div><div class="ddtl">'+day.label+ss+'</div><div class="dddt">'+day.date+'</div></div>'
+        +'<div class="ddst">'+statusIco+'</div>'
+      +'</div>'
+      +'<div class="ddbody'+(OPEN_DAY===i?' open':'')+'">'
+        +'<textarea class="dta" id="dtext-'+i+'" placeholder="Was haben wir heute erlebt? Highlights, Eindrücke…">'+(e.text||'')+'</textarea>'
+        +photoHtml
+        +fotoButtons
+        +starHtml
+        +'<button class="savebtn" onclick="saveDay('+i+')">Speichern</button>'
+      +'</div>'
+    +'</div>';
   }).join('');
 }
-function toggleDay(i){OPEN_DAY=OPEN_DAY===i?null:i;loadDiary();}
-function setStar(day,s){var d=getDiaryData();var e=d['day'+day]||{};var t=document.getElementById('dtext-'+day);saveDiaryEntry(day,t?t.value:(e.text||''),s);OPEN_DAY=day;loadDiary();}
-function saveDay(day){var t=document.getElementById('dtext-'+day);var d=getDiaryData();var e=d['day'+day]||{};saveDiaryEntry(day,t?t.value:'',e.stars||0);showToast('✓ Eintrag gespeichert');OPEN_DAY=null;loadDiary();}
+
+function toggleDay(i){OPEN_DAY=(OPEN_DAY===i)?null:i;loadDiary();}
+
+function setStar(day,s){
+  var d=getDiaryData();var e=d['day'+day]||{};
+  var t=document.getElementById('dtext-'+day);
+  saveDiaryEntry(day,t?t.value:(e.text||''),s,undefined);
+  OPEN_DAY=day;loadDiary();
+}
+
+function saveDay(day){
+  var t=document.getElementById('dtext-'+day);
+  var d=getDiaryData();var e=d['day'+day]||{};
+  saveDiaryEntry(day,t?t.value:'',e.stars||0,undefined);
+  showToast('✓ Eintrag gespeichert');
+  OPEN_DAY=null;loadDiary();
+}
+
+// Foto-Button triggert das versteckte file-input
+function triggerPhoto(day){
+  var inp=document.getElementById('photo-input-'+day);
+  if(inp)inp.click();
+}
+
+// Foto einlesen, via Canvas auf max 800px / JPEG 0.6 komprimieren, speichern
+function handlePhoto(event,day){
+  var file=event.target.files&&event.target.files[0];
+  if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      // Canvas-Komprimierung
+      var MAX=800;
+      var w=img.width,h=img.height;
+      if(w>MAX){h=Math.round(h*(MAX/w));w=MAX;}
+      var canvas=document.createElement('canvas');
+      canvas.width=w;canvas.height=h;
+      canvas.getContext('2d').drawImage(img,0,0,w,h);
+      var b64=canvas.toDataURL('image/jpeg',0.6);
+      // Aktuellen Text und Sterne sichern vor dem Re-Render
+      var textEl=document.getElementById('dtext-'+day);
+      var currentText=textEl?textEl.value:'';
+      var dData=getDiaryData();
+      var currentStars=(dData['day'+day]||{}).stars||0;
+      var ok=saveDiaryEntry(day,currentText,currentStars,b64);
+      if(ok){showToast('📷 Foto gespeichert');}
+      OPEN_DAY=day;loadDiary();
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// Foto löschen
+function deletePhoto(day){
+  var textEl=document.getElementById('dtext-'+day);
+  var currentText=textEl?textEl.value:'';
+  var dData=getDiaryData();
+  var currentStars=(dData['day'+day]||{}).stars||0;
+  saveDiaryEntry(day,currentText,currentStars,null);
+  showToast('🗑 Foto gelöscht');
+  OPEN_DAY=day;loadDiary();
+}
 
 // ══ #5 KARTEN: native App auf iOS (maps://) und Android (geo:) triggern ══
 function openMap(query){
@@ -1194,23 +1302,29 @@ applyFS();
 // ══ #6 BUDGET SCHNELL-BUTTONS ══
 function addQuick(n){var f=document.getElementById('bamt');f.value=((parseFloat(f.value)||0)+n).toFixed(2);}
 
-// ══ #7 TAGEBUCH EXPORT ══
+// ══ #7 TAGEBUCH EXPORT (Fotos werden ignoriert – nur Text) ══
 function openExport(){
   var d=getDiaryData();
-  var lines=['OOSTENDE 2026 - Reiseerinnerungen von Marlene & Michael','='.repeat(50),''];
+  var lines=['🇧🇪 OOSTENDE 2026 – Reiseerinnerungen','   Marlene & Michael · 16. Juli – 31. August 2026','='.repeat(50),''];
   var any=false;
   DAYS.forEach(function(day,i){
     var e=d['day'+i]||{};
-    if(e.text&&e.text.trim()){
+    var hasText=e.text&&e.text.trim();
+    var hasPhoto=!!e.photo;
+    if(hasText||hasPhoto){
       any=true;
-      var s=e.stars>0?'*'.repeat(e.stars):'';
-      lines.push('['+day.label+'] '+day.date+(s?' '+s:''));
-      lines.push(e.text.trim());
+      var s=e.stars>0?'⭐'.repeat(e.stars):'';
+      lines.push('📅 '+day.label+' · '+day.date+(s?' '+s:''));
+      if(hasText)lines.push(e.text.trim());
+      if(hasPhoto)lines.push('[📷 Foto vorhanden – im Gerät gespeichert]');
       lines.push('');
     }
   });
-  if(!any)lines.push('Noch keine Eintraege vorhanden. Viel Spass im Urlaub!');
-  document.getElementById('export-ta').value=lines.join('\n');
+  if(!any)lines.push('Noch keine Einträge vorhanden. Viel Spaß im Urlaub!');
+  // Sicherheitscheck: kein Base64 im Export
+  var txt=lines.join('\n');
+  if(txt.indexOf('data:image')>=0)txt=txt.replace(/data:image[^,]+,[A-Za-z0-9+/=]+/g,'[Bild]');
+  document.getElementById('export-ta').value=txt;
   document.getElementById('export-modal').style.display='flex';
 }
 function closeExport(){document.getElementById('export-modal').style.display='none';}
