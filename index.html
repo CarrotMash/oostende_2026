@@ -8,9 +8,10 @@
 <title>Oostende 2026 – Marlene &amp; Michael</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IM+Fell+English:ital@0;1&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--black:#1a1a1a;--gold:#C8971F;--red:#c0392b;--navy:#1a3a6e;--cream:#F5F2EA;--white:#FFFFFF;--grey:#6b6b6b;--light:#E8E3D8;--teal:#1a6b6b;--bg:var(--cream);--surface:var(--white);--text:var(--black);--border:var(--light);--muted:var(--grey)}
-.dark{--cream:#0d1820;--white:#122030;--black:#e8f0f8;--grey:#8fa8c0;--light:#1c2e40;--bg:#0d1820;--surface:#122030;--text:#e8f0f8;--border:#1c2e40;--muted:#8fa8c0}
+:root{--fs:1rem;--black:#1a1a1a;--gold:#C8971F;--red:#c0392b;--navy:#1a3a6e;--cream:#F5F2EA;--white:#FFFFFF;--grey:#6b6b6b;--light:#E8E3D8;--teal:#1a6b6b;--bg:var(--cream);--surface:var(--white);--text:var(--black);--border:var(--light);--muted:var(--grey)}
+.dark{--cream:#0d1820;--white:#122030;--black:#f0f4f8;--grey:#a8c0d4;--light:#1c2e40;--bg:#0d1820;--surface:#122030;--text:#e8f0f8;--border:#1c2e40;--muted:#8fa8c0}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:var(--fs)}
 body{font-family:"Source Sans 3",sans-serif;background:var(--cream);color:var(--black);min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
 .sh{font-family:"Playfair Display",serif;font-size:1.55rem;font-weight:700;color:var(--navy);margin-bottom:5px;border-left:4px solid var(--gold);padding-left:12px}
 .dark .sh{color:var(--gold)}
@@ -25,31 +26,72 @@ a.maplink{display:inline-flex;align-items:center;gap:4px;font-size:.82rem;font-w
 a.maplink:hover{background:var(--navy);color:white}
 a.weblink{display:inline-flex;align-items:center;gap:4px;font-size:.82rem;font-weight:700;color:var(--teal);text-decoration:none;background:rgba(26,107,107,.1);border:1px solid rgba(26,107,107,.25);border-radius:12px;padding:4px 10px;margin:5px 0 3px 4px;transition:all .2s}
 a.weblink:hover{background:var(--teal);color:white}
-/* HERO */
-.hero{position:relative;background:#cfc4a2;display:flex;flex-direction:column;align-items:center;overflow:hidden;min-height:100vh}
-/* Poster oben: nimmt obere 58% des Viewports ein, vollständig sichtbar */
-.hero-poster{display:block;width:100%;max-height:58vh;object-fit:contain;object-position:center top;z-index:1;position:relative;flex-shrink:0}
-/* Dunkler Streifen hinter dem Content-Bereich unten */
-.hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:46%;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.6) 50%,transparent 100%);z-index:2;pointer-events:none}
-.hero-overlay{display:none}
-.dm-toggle{position:absolute;top:14px;right:14px;z-index:30;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 13px;color:white;cursor:pointer;font-size:.8rem;font-family:"Source Sans 3",sans-serif;font-weight:600;transition:all .2s}
-/* Content liegt über dem Gradient-Streifen ganz unten */
-.hcontent{position:relative;z-index:10;text-align:center;padding:12px 20px 18px;pointer-events:none;width:100%;margin-top:auto}
-.htitle{font-family:"Playfair Display",serif;font-size:clamp(2.6rem,10vw,4rem);font-weight:900;color:white;letter-spacing:4px;text-transform:uppercase;line-height:1;text-shadow:0 3px 16px rgba(0,0,0,1);margin-bottom:4px}
-.hsub{font-family:"IM Fell English",serif;font-style:italic;font-size:clamp(1.05rem,3.5vw,1.25rem);color:var(--gold);letter-spacing:1px;margin-bottom:10px;text-shadow:0 2px 10px rgba(0,0,0,.9)}
-.hphases{display:flex;gap:8px;margin-bottom:10px;pointer-events:all;justify-content:center;flex-wrap:wrap}
-.ppill{background:rgba(0,0,0,.45);backdrop-filter:blur(4px);border:1px solid rgba(200,151,31,.7);border-radius:20px;padding:8px 16px;color:white;font-size:.88rem;font-weight:700;text-transform:uppercase;cursor:pointer;transition:all .2s;text-shadow:0 1px 4px rgba(0,0,0,.8)}
-.ppill:hover{background:rgba(200,151,31,.45)}
-.hcd{display:inline-flex;gap:10px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);border:1px solid rgba(200,151,31,.55);border-radius:10px;padding:11px 20px;margin-bottom:8px}
-.hcu{text-align:center;min-width:46px}
-.hcn{font-family:"Playfair Display",serif;font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;display:block}
-.hcl{font-size:.75rem;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:1px;font-family:"Source Sans 3",sans-serif;margin-top:3px}
-.hcsep{font-size:1.8rem;color:rgba(255,255,255,.4);align-self:center;font-family:"Playfair Display",serif;margin-top:-4px}
-.hdl{font-size:.95rem;color:rgba(255,255,255,.85);font-family:"Source Sans 3",sans-serif;margin-bottom:12px;text-shadow:0 1px 8px rgba(0,0,0,.9)}
-.hbtn{display:inline-flex;align-items:center;gap:10px;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:2px solid rgba(200,151,31,.85);border-radius:50px;padding:14px 40px;color:white;cursor:pointer;transition:all .2s;pointer-events:all}
+/* ══ HERO: Poster als echter Vollbild-Hintergrund ══ */
+.hero{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:#b8ab8a;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;
+  overflow:hidden;
+  /* Wird per JS auf display:none gesetzt wenn App offen */
+}
+/* Poster füllt den gesamten Hero-Bereich */
+.hero-poster{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  z-index:0;
+}
+/* Sanftes Vignette-Overlay: oben kaum, unten kräftiger für Lesbarkeit */
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.0) 28%, rgba(0,0,0,.0) 45%, rgba(0,0,0,.55) 72%, rgba(0,0,0,.82) 100%);
+}
+/* Controls oben rechts */
+.hero-controls{position:absolute;top:14px;right:14px;z-index:30;display:flex;gap:8px}
+.hctrl-btn{background:rgba(0,0,0,.48);border:1px solid rgba(255,255,255,.38);border-radius:10px;padding:6px 13px;color:white;cursor:pointer;font-size:.85rem;font-weight:700;transition:all .2s;min-height:44px;min-width:44px;backdrop-filter:blur(4px)}
+.hctrl-btn:hover{background:rgba(200,151,31,.55);border-color:var(--gold)}
+/* Content-Block: kompakt, unten zentriert, über dem Gradient */
+.hcontent{
+  position:relative;z-index:10;
+  text-align:center;
+  padding:0 20px 20px;
+  width:100%;
+  pointer-events:none;
+  /* Kompaktes Layout: alles sichtbar ohne Scrollen */
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.htitle{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(2.4rem,11vw,3.8rem);
+  font-weight:900;color:white;
+  letter-spacing:4px;text-transform:uppercase;line-height:1;
+  text-shadow:0 2px 12px rgba(0,0,0,.9),0 0 40px rgba(0,0,0,.5);
+  margin:0;
+}
+.hsub{
+  font-family:"IM Fell English",serif;font-style:italic;
+  font-size:clamp(.95rem,3vw,1.15rem);
+  color:var(--gold);letter-spacing:1px;
+  text-shadow:0 1px 6px rgba(0,0,0,.8);
+  margin:0;
+}
+.hphases{display:flex;gap:7px;pointer-events:all;justify-content:center;flex-wrap:wrap;margin:0}
+.ppill{background:rgba(0,0,0,.52);backdrop-filter:blur(4px);border:1px solid rgba(200,151,31,.72);border-radius:20px;padding:7px 15px;color:white;font-size:.84rem;font-weight:700;text-transform:uppercase;cursor:pointer;transition:all .2s;min-height:40px}
+.ppill:hover{background:rgba(200,151,31,.5)}
+.hcd{display:inline-flex;gap:8px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);border:1px solid rgba(200,151,31,.5);border-radius:10px;padding:9px 18px;margin:0}
+.hcu{text-align:center;min-width:42px}
+.hcn{font-family:"Playfair Display",serif;font-size:2.1rem;font-weight:900;color:var(--gold);line-height:1;display:block}
+.hcl{font-size:.68rem;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:1px;font-family:"Source Sans 3",sans-serif;margin-top:2px}
+.hcsep{font-size:1.6rem;color:rgba(255,255,255,.38);align-self:center;font-family:"Playfair Display",serif}
+.hdl{font-size:.85rem;color:rgba(255,255,255,.82);font-family:"Source Sans 3",sans-serif;margin:0}
+.hbtn{display:inline-flex;align-items:center;gap:10px;background:rgba(0,0,0,.48);backdrop-filter:blur(8px);border:2px solid rgba(200,151,31,.88);border-radius:50px;padding:12px 36px;color:white;cursor:pointer;transition:all .2s;pointer-events:all;min-height:52px}
 .hbtn:hover{background:rgba(200,151,31,.45);transform:scale(1.04)}
-.hbtn-lbl{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700;letter-spacing:3px;text-transform:uppercase}
-.belflag-bar{height:9px;background:linear-gradient(90deg,#1a1a1a 0%,#1a1a1a 33.3%,#C8971F 33.3%,#C8971F 66.6%,#c0392b 66.6%,#c0392b 100%);position:absolute;bottom:0;left:0;right:0;z-index:20}
+.hbtn-lbl{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+/* Belgische Flagge unten */
+.belflag-bar{height:8px;background:linear-gradient(90deg,#1a1a1a 0%,#1a1a1a 33.3%,#C8971F 33.3%,#C8971F 66.6%,#c0392b 66.6%,#c0392b 100%);position:absolute;bottom:0;left:0;right:0;z-index:20}
 /* OFFLINE */
 .offline-banner{background:var(--red);color:white;text-align:center;padding:6px 12px;font-size:.78rem;font-weight:600;position:fixed;top:0;left:0;right:0;z-index:9999;display:none}
 .offline-banner.show{display:block}
@@ -70,11 +112,13 @@ a.weblink:hover{background:var(--teal);color:white}
 .dark .mtl{color:var(--text)}
 .mts{font-size:.72rem;color:var(--muted);font-family:"Source Sans 3",sans-serif}
 .mfoot{text-align:center;padding:14px 16px;font-size:.75rem;color:var(--muted);font-family:"Source Sans 3",sans-serif}
-/* INNER APP */
+/* INNER APP – Hero ist position:fixed, daher kein extra top-Abstand nötig */
 .appinner{display:none}
 .appinner.vis{display:block}
+/* Wenn Hero sichtbar: body nicht scrollbar */
+body.hero-active{overflow:hidden;height:100vh}
 .ihead{position:sticky;top:0;background:var(--navy);color:white;display:flex;align-items:center;gap:10px;padding:12px 14px;z-index:100;min-height:54px}
-.iback{background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;padding:0 6px;flex-shrink:0}
+.iback{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:8px;color:white;font-size:.88rem;font-weight:700;cursor:pointer;padding:8px 14px;flex-shrink:0;min-height:48px;min-width:110px;white-space:nowrap}
 .ititle{flex:1;font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:700;color:var(--gold)}
 .sos-btn{background:var(--red);border:none;color:white;border-radius:6px;padding:6px 12px;font-size:.85rem;font-weight:700;cursor:pointer;flex-shrink:0}
 .sec{display:none;padding:18px 14px 28px}
@@ -182,16 +226,16 @@ a.weblink:hover{background:var(--teal);color:white}
 /* NAV */
 .bnav{position:fixed;bottom:0;left:0;right:0;background:var(--navy);display:none;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--gold);z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.4)}
 .bnav.vis{display:grid}
-.nb{background:none;border:none;color:rgba(255,255,255,.55);cursor:pointer;padding:9px 4px 7px;display:flex;flex-direction:column;align-items:center;gap:3px;transition:all .15s}
+.nb{background:none;border:none;color:rgba(255,255,255,.55);cursor:pointer;padding:9px 4px 7px;display:flex;flex-direction:column;align-items:center;gap:3px;transition:all .15s;min-height:56px;min-width:48px}
 .nb.active{color:var(--gold)}.nb:hover{color:white}
 .ni{font-size:1.5rem;line-height:1}
 .nl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;font-family:"Source Sans 3",sans-serif}
-.mmenu{display:none;position:fixed;bottom:58px;left:0;right:0;background:var(--navy);border-top:2px solid var(--gold);z-index:190;grid-template-columns:repeat(4,1fr);padding:10px;gap:8px}
-.mmenu.open{display:grid}
-.mmi{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 4px;text-align:center;cursor:pointer;color:white;transition:background .15s}
-.mmi:hover{background:rgba(200,151,31,.3);border-color:var(--gold)}
-.mmii{font-size:1.6rem;display:block;margin-bottom:4px}
-.mmil{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-family:"Source Sans 3",sans-serif}
+.morepanel{display:none;position:fixed;bottom:61px;left:0;right:0;background:var(--navy);border-top:2px solid var(--gold);z-index:190;overflow-y:auto;max-height:60vh}
+.morepanel.open{display:block}
+.mpitem{display:flex;align-items:center;gap:14px;padding:14px 20px;color:white;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.08);font-size:1rem;font-weight:600;min-height:56px;transition:background .15s}
+.mpitem:last-child{border-bottom:none}
+.mpitem:hover{background:rgba(200,151,31,.25)}
+.mpico{font-size:1.5rem;width:32px;flex-shrink:0}
 .nsp{height:64px}
 .footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:16px;font-size:.75rem;font-family:"Source Sans 3",sans-serif;margin-top:24px}
 .footer span{color:var(--gold)}
@@ -200,12 +244,28 @@ a.weblink:hover{background:var(--teal);color:white}
 </head>
 <body>
 
+<div id="export-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:500;align-items:center;justify-content:center;padding:16px">
+  <div style="background:var(--surface);border-radius:14px;padding:20px;width:100%;max-width:520px;max-height:85vh;display:flex;flex-direction:column;gap:12px">
+    <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--navy)">&#x1F4E4; Erinnerungen exportieren</div>
+    <p style="font-size:.88rem;color:var(--muted)">Text markieren, kopieren &amp; per WhatsApp/E-Mail versenden:</p>
+    <textarea id="export-ta" readonly style="flex:1;width:100%;min-height:260px;border:1px solid var(--border);border-radius:6px;padding:12px;font-size:.9rem;line-height:1.6;background:var(--cream);color:var(--black);resize:none"></textarea>
+    <button onclick="closeExport()" style="background:var(--navy);color:white;border:none;border-radius:6px;padding:12px 24px;font-size:.95rem;font-weight:700;cursor:pointer;align-self:flex-end;min-height:48px">&#x2715; Schlie&#xDF;en</button>
+  </div>
+</div>
 <div class="offline-banner" id="offline-banner">📵 Kein Internet – App läuft offline</div>
 
 <div class="hero" id="hero">
-  <button class="dm-toggle" id="dm-toggle" onclick="toggleDarkMode()">🌙 Dark</button>
-  <img class="hero-poster" src="poster_oostende.jpg" alt="Belgian Watering Places Poster" onerror="this.style.display='none'">
+  <!-- Poster: echter Vollbild-Hintergrund -->
+  <img class="hero-poster" src="poster_oostende.jpg" alt="Belgian Watering Places Poster" onerror="this.style.background='#b8ab8a'">
+  <!-- Vignette-Overlay für Lesbarkeit -->
   <div class="hero-overlay"></div>
+  <!-- Controls oben rechts: A-, A+, Dark -->
+  <div class="hero-controls">
+    <button class="hctrl-btn" onclick="changeFontSize(-1)" title="Schrift kleiner">A−</button>
+    <button class="hctrl-btn" onclick="changeFontSize(1)" title="Schrift größer">A+</button>
+    <button class="hctrl-btn" id="dm-toggle" onclick="toggleDarkMode()">🌙 Dark</button>
+  </div>
+  <!-- Content-Block: kompakt unten, alles ohne Scrollen sichtbar -->
   <div class="hcontent">
     <div class="htitle">Oostende 2026</div>
     <div class="hsub">Marlene &amp; Michael &middot; 16. Juli – 31. August</div>
@@ -221,7 +281,7 @@ a.weblink:hover{background:var(--teal);color:white}
       <div class="hcsep">:</div>
       <div class="hcu"><span class="hcn" id="cd-mins">-</span><span class="hcl">Min.</span></div>
     </div>
-    <div class="hdl">🚗 Anreise PKW &middot; Mariakerke, Oostende &middot; 46 Tage Urlaub!</div>
+    <div class="hdl">🚗 Anreise PKW &middot; Mariakerke &middot; 46 Tage Urlaub!</div>
     <button class="hbtn" onclick="openMenu()">
       <span style="font-size:1.1rem">☰</span>
       <span class="hbtn-lbl">Menü</span>
@@ -266,7 +326,7 @@ a.weblink:hover{background:var(--teal);color:white}
 <!-- INNER APP -->
 <div class="appinner" id="appinner">
 <div class="ihead">
-  <button class="iback" onclick="goHome()">←</button>
+  <button class="iback" onclick="goHome()">&#x1F3E0; Startseite</button>
   <div class="ititle" id="ititle">Oostende 2026</div>
   <button class="sos-btn" onclick="openSec('sos')">🆘</button>
 </div>
@@ -303,15 +363,15 @@ a.weblink:hover{background:var(--teal);color:white}
 <div id="strand" class="sec">
 <div class="sh">🏖 Strand & Meer</div><div class="ssh">La mer du Nord – Nordsee-Feeling pur</div>
 <div class="card"><div class="ct">🌊 Strand Mariakerke</div><div class="cm">Zeedijk Mariakerke · direkt vor der Unterkunft</div>
-  <a href="https://maps.google.com/?q=Strand+Mariakerke+Oostende" target="_blank" class="maplink">📍 Google Maps</a>
+  <a href="geo:0,0?q=Strand+Mariakerke+Oostende" target="_blank" class="maplink">📍 Google Maps</a>
   <div class="cx">Ruhiger als der Hauptstrand, weniger überfüllt. Rettungsschwimmer im Hochsommer. Wunderbarer Sonnenuntergangsblick Richtung Westen. Strandbarrieren alle 200m beachten.</div><div><span class="tag tr">Weniger voll</span><span class="tag tb">Direkt vor Ort</span></div>
 </div>
 <div class="card"><div class="ct">🏄 Strand Oostende Zentrum</div><div class="cm">Albert I-Promenade</div>
-  <a href="https://maps.google.com/?q=Strand+Oostende+Albert+I+Promenade" target="_blank" class="maplink">📍 Google Maps</a>
+  <a href="geo:0,0?q=Strand+Oostende+Albert+I+Promenade" target="_blank" class="maplink">📍 Google Maps</a>
   <div class="cx">Belebter Hauptstrand mit Strandkörben, Beach-Bars, dem großen Riesenrad. Im Sommer sehr voll – früh kommen oder abends für Aperitif am Meer.</div><div><span class="tag tg">Lebendig</span></div>
 </div>
 <div class="card"><div class="ct">🦭 Seehundclub Oostende</div><div class="cm">Viooltjesstraat 29 · nahe Mariakerke</div>
-  <a href="https://maps.google.com/?q=Seehundclub+Viooltjesstraat+29+Oostende" target="_blank" class="maplink">📍 Google Maps</a>
+  <a href="geo:0,0?q=Seehundclub+Viooltjesstraat+29+Oostende" target="_blank" class="maplink">📍 Google Maps</a>
   <a href="https://www.sealcentre.be" target="_blank" class="weblink">🌐 sealcentre.be</a>
   <div class="cx">Verletzte Seehunde werden hier gepflegt und ausgewildert. Zu bestimmten Zeiten für Besucher geöffnet – vorher auf der Website prüfen.</div><div><span class="tag tr">Besonders</span></div>
 </div>
@@ -325,46 +385,46 @@ a.weblink:hover{background:var(--teal);color:white}
 <div class="sh">Sights & Must-Sees</div><div class="ssh">Kultur, Küste und königliches Erbe</div>
 <div class="bdiv"><span>🏛 Museen & Kultur</span></div>
 <div class="card"><div class="ct">🎨 Mu.ZEE – Kunstmuseum</div><div class="cm">Romestraat 11 · Di–So 10–18 Uhr · ca. 10 €</div>
-  <a href="https://maps.google.com/?q=Mu.ZEE+Romestraat+11+Oostende" target="_blank" class="maplink">📍 Maps</a>
+  <a href="geo:0,0?q=Mu.ZEE+Romestraat+11+Oostende" target="_blank" class="maplink">📍 Maps</a>
   <a href="https://www.muzee.be" target="_blank" class="weblink">🌐 muzee.be</a>
   <div class="cx">Belgischer Expressionismus, Ensor, Permeke – eines der bedeutendsten Kunstmuseen Flanderns. Für einen kulturellen Nachmittag perfekt.</div><div><span class="tag tr">Top-Empfehlung</span></div>
 </div>
 <div class="card"><div class="ct">🖼 James Ensorhuis</div><div class="cm">Vlaanderenstraat 27 · ca. 6 €</div>
-  <a href="https://maps.google.com/?q=James+Ensorhuis+Vlaanderenstraat+27+Oostende" target="_blank" class="maplink">📍 Maps</a>
+  <a href="geo:0,0?q=James+Ensorhuis+Vlaanderenstraat+27+Oostende" target="_blank" class="maplink">📍 Maps</a>
   <a href="https://www.ensorhuis.be" target="_blank" class="weblink">🌐 ensorhuis.be</a>
   <div class="cx">Original-Atelier von James Ensor (1860–1949), dem Maler der Masken. Klein aber sehr persönlich – gut kombinierbar mit Mu.ZEE.</div><div><span class="tag tb">Geheimtipp</span></div>
 </div>
 <div class="card"><div class="ct">🚢 Museumsschiff Amandine</div><div class="cm">Visserskaai · tägl. 10–17 Uhr · ca. 8 €</div>
-  <a href="https://maps.google.com/?q=Museumschip+Amandine+Visserskaai+Oostende" target="_blank" class="maplink">📍 Maps</a>
+  <a href="geo:0,0?q=Museumschip+Amandine+Visserskaai+Oostende" target="_blank" class="maplink">📍 Maps</a>
   <a href="https://www.amandine.be" target="_blank" class="weblink">🌐 amandine.be</a>
   <div class="cx">Ehemaliger isländischer Fischdampfer aus den 1960ern. Faszinierende Geschichte des Seefahrerlebens. Direkt am Fischereihafen.</div>
 </div>
 <div class="card"><div class="ct">🏰 Fort Napoleon</div><div class="cm">Vuurtorenweg · Di–So ab 10 Uhr · ca. 10 €</div>
-  <a href="https://maps.google.com/?q=Fort+Napoleon+Vuurtorenweg+Oostende" target="_blank" class="maplink">📍 Maps</a>
+  <a href="geo:0,0?q=Fort+Napoleon+Vuurtorenweg+Oostende" target="_blank" class="maplink">📍 Maps</a>
   <a href="https://www.fortnapoleon.be" target="_blank" class="weblink">🌐 fortnapoleon.be</a>
   <div class="cx">Napoleonische Festung aus dem frühen 19. Jh., heute Museum. Auch als Veranstaltungsort – Events im Sommer prüfen!</div>
 </div>
 <div class="card"><div class="ct">🐟 Noordzeeaquarium</div><div class="cm">Visserskaai 25 · tägl. · ca. 5 € (günstig!)</div>
-  <a href="https://maps.google.com/?q=Noordzeeaquarium+Visserskaai+25+Oostende" target="_blank" class="maplink">📍 Maps</a>
+  <a href="geo:0,0?q=Noordzeeaquarium+Visserskaai+25+Oostende" target="_blank" class="maplink">📍 Maps</a>
   <div class="cx">Klein aber fein: Quallen, Schollen, Hummer & Co. Direkt am Hafen – ideal kombiniert mit dem Fischmarkt und Amandine.</div><div><span class="tag tg">Günstig</span></div>
 </div>
 <div class="bdiv"><span>🏗 Architektur & Stadtleben</span></div>
 <div class="card"><div class="ct">🏛 Koninklijke Gaanderijen</div><div class="cm">Monacoplein · kostenlos</div>
-  <a href="https://maps.google.com/?q=Koninklijke+Gaanderijen+Oostende" target="_blank" class="maplink">📍 Maps</a>
+  <a href="geo:0,0?q=Koninklijke+Gaanderijen+Oostende" target="_blank" class="maplink">📍 Maps</a>
   <div class="cx">Die ikonischen Jugendstil-Galerien: Glasdach, Mosaiken, historische Atmosphäre. Das fotogenste Motiv Oostendes – Flanieren bei jedem Wetter.</div><div><span class="tag tg">Kostenlos</span><span class="tag tr">Fotomotiv!</span></div>
 </div>
 <div class="card"><div class="ct">🎨 The Crystal Ship – Street Art</div><div class="cm">Durch ganz Oostende · kostenlos · App verfügbar</div>
-  <a href="https://maps.google.com/?q=Crystal+Ship+Street+Art+Oostende" target="_blank" class="maplink">📍 Maps</a>
+  <a href="geo:0,0?q=Crystal+Ship+Street+Art+Oostende" target="_blank" class="maplink">📍 Maps</a>
   <a href="https://www.thecrystalship.be" target="_blank" class="weblink">🌐 thecrystalship.be</a>
   <div class="cx">100+ Riesengemälde von internationalen Künstlern an Fassaden der Stadt. App herunterladen für geführten Rundgang. Das Bosoletti-Bild am Achturenplein im Negativfilter anschauen!</div><div><span class="tag tg">Kostenlos</span><span class="tag tr">Insider!</span></div>
 </div>
 <div class="card"><div class="ct">⚔️ Domäne Raversyde – Atlantikwall</div><div class="cm">Nieuwpoortsesteenweg 636 · Di–So · ca. 8 €</div>
-  <a href="https://maps.google.com/?q=Domein+Raversyde+Atlantikwall+Oostende" target="_blank" class="maplink">📍 Maps</a>
+  <a href="geo:0,0?q=Domein+Raversyde+Atlantikwall+Oostende" target="_blank" class="maplink">📍 Maps</a>
   <a href="https://www.raversyde.be" target="_blank" class="weblink">🌐 raversyde.be</a>
   <div class="cx">Original erhaltene WWII-Bunkeranlagen + mittelalterliches Fischerdorf-Ensemble. Zu Fuß von Mariakerke erreichbar! Audioguide auf Deutsch.</div><div><span class="tag tr">Highlight!</span><span class="tag tb">Zu Fuß!</span></div>
 </div>
 <div class="card"><div class="ct">🎰 Casino Kursaal Oostende</div><div class="cm">Monacoplein 1</div>
-  <a href="https://maps.google.com/?q=Casino+Kursaal+Oostende+Monacoplein" target="_blank" class="maplink">📍 Maps</a>
+  <a href="geo:0,0?q=Casino+Kursaal+Oostende+Monacoplein" target="_blank" class="maplink">📍 Maps</a>
   <a href="https://www.casinooostende.be" target="_blank" class="weblink">🌐 casinooostende.be</a>
   <div class="cx">Konzert- und Spielort direkt am Meer. Im Sommer regelmäßig Events. Auch ohne Spielabsicht: Bar Meerblick für einen Drink.</div>
 </div>
@@ -394,43 +454,43 @@ a.weblink:hover{background:var(--teal);color:white}
 
 <div class="card" data-cat="fisch"><div class="ct">🐟 t'Vistrapje <span class="preis">€€</span></div>
 <div class="cm">Visserskaai, Oostende</div>
-<a href="https://maps.google.com/?q=t+Vistrapje+Visserskaai+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=t+Vistrapje+Visserskaai+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Klassische belgische Meeresfrüchteküche direkt am Fischereihafen. Marco Polo Top-Tipp. Mittagessen nach dem Fischmarkt-Bummel ideal.</div>
 <div><span class="tag tr">Empfehlung</span><span class="tag tg">Mittagstipp</span></div></div>
 
 <div class="card" data-cat="fisch"><div class="ct">🦐 Lusitania <span class="preis">€€</span></div>
 <div class="cm">Visserskaai, Oostende</div>
-<a href="https://maps.google.com/?q=Restaurant+Lusitania+Visserskaai+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Restaurant+Lusitania+Visserskaai+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Traditionsrestaurant am Hafen – auf Garnalen und Nordseekreaturen spezialisiert. Garnaalcroquettes (Krabbenkroketten) sind hier ein Muss!</div>
 <div><span class="tag tr">Traditionell</span></div></div>
 
 <div class="card" data-cat="fisch"><div class="ct">🍽 Aqua-Grill <span class="preis">€€</span></div>
 <div class="cm">Visserskaai 26, Oostende</div>
-<a href="https://maps.google.com/?q=Aqua+Grill+Visserskaai+26+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Aqua+Grill+Visserskaai+26+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Brasserie mit Terrasse direkt am Hafen. Breite Karte: Muscheln, Fisch, flämische Küche. Beliebt bei Einheimischen – Reservierung empfohlen.</div>
 <div><span class="tag tg">Terrasse</span><span class="tag tb">Empfohlen</span></div></div>
 
 <div class="card" data-cat="fisch"><div class="ct">🦪 La Moulinière <span class="preis">€€</span></div>
 <div class="cm">Zentrum Oostende</div>
-<a href="https://maps.google.com/?q=La+Moulinière+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=La+Moulinière+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Spezialisiert auf Muscheln – 40 verschiedene Zubereitungen! Von klassisch bis Roquefort-Sauce. Käsekroketten als Vorspeise unbedingt probieren.</div>
 <div><span class="tag tr">Mussel-Spezialist</span></div></div>
 
 <div class="card" data-cat="fisch"><div class="ct">🍔 Mac Moules <span class="preis">€</span></div>
 <div class="cm">Van Iseghemlaan 56, Oostende</div>
-<a href="https://maps.google.com/?q=Mac+Moules+Van+Iseghemlaan+56+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Mac+Moules+Van+Iseghemlaan+56+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">"Seafood Rock'n'Roll Style" – gulle Portionen Muscheln und Seafood-Burger in volkstümlichem No-Nonsense-Setting. Bis Mitternacht geöffnet!</div>
 <div><span class="tag tg">Günstig</span><span class="tag tr">Lässig</span></div></div>
 
 <div class="card" data-cat="fisch"><div class="ct">🍽 Adelientje <span class="preis">€€</span></div>
 <div class="cm">Zentrum Oostende</div>
-<a href="https://maps.google.com/?q=Restaurant+Adelientje+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Restaurant+Adelientje+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Freundliches Fischrestaurant mit breiter Karte von Garnalenkroketten bis Zeebaars. Ruhige Atmosphäre – gut für ein entspanntes Abendessen zu zweit.</div>
 <div><span class="tag tr">Zu zweit</span></div></div>
 
 <div class="card" data-cat="fisch"><div class="ct">⭐ Willem Hiele <span class="preis">€€€</span></div>
 <div class="cm">Kapittelstraat 71, Oudenburg (10 Min. vom Centrum)</div>
-<a href="https://maps.google.com/?q=Willem+Hiele+Kapittelstraat+71+Oudenburg" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Willem+Hiele+Kapittelstraat+71+Oudenburg" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.willemhiele.be" target="_blank" class="weblink">🌐 willemhiele.be</a>
 <div class="cx">Gastronomisches Highlight der Region: Gault-Millau-bewertet. "Koken is voor mij verbinden, varen op het ritme van de zee." Raffinierte Küche mit Nordsee-Fokus. Auch Gästezimmer mit Landschaftsblick.</div>
 <div><span class="tag ts">Gault Millau</span><span class="tag tr">Besonderer Abend</span></div></div>
@@ -439,32 +499,32 @@ a.weblink:hover{background:var(--teal);color:white}
 
 <div class="card" data-cat="belg"><div class="ct">🇧🇪 Graaf van Vlaanderen <span class="preis">€€</span></div>
 <div class="cm">Zentrum Oostende</div>
-<a href="https://maps.google.com/?q=Graaf+van+Vlaanderen+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Graaf+van+Vlaanderen+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Gemütliche Bierstube mit hervorragender belgischer Bierauswahl. Moules-Frites, Waterzooi, flämische Klassiker. Sehr beliebt – früh kommen!</div>
 <div><span class="tag tg">Preistipp</span><span class="tag tr">Belgisch!</span></div></div>
 
 <div class="card" data-cat="belg"><div class="ct">🍻 Brasserie Alfons <span class="preis">€</span></div>
 <div class="cm">Alfons Pieterslaan 29, Oostende</div>
-<a href="https://maps.google.com/?q=Brasserie+Alfons+Pieterslaan+29+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Brasserie+Alfons+Pieterslaan+29+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Wechselnde Karte fast wöchentlich – voller lokaler Gerichte inkl. berühmter Garnaalkroket. Preislich sehr fair, beliebt bei Einheimischen. <strong>Unter 20 € pro Person!</strong></div>
 <div><span class="tag tg">Sehr günstig</span><span class="tag tr">Lokal</span></div></div>
 
 <div class="card" data-cat="belg"><div class="ct">☕ De Grote Post – CultuurCafé <span class="preis">€</span></div>
 <div class="cm">Hendrik Serruyslaan 18, Oostende</div>
-<a href="https://maps.google.com/?q=De+Grote+Post+Hendrik+Serruyslaan+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=De+Grote+Post+Hendrik+Serruyslaan+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.degrotepost.be" target="_blank" class="weblink">🌐 degrotepost.be</a>
 <div class="cx">Von Frühstück bis Dinner – saisonale lokale Produkte, viel Gemüse und Fisch. Sehr faire Preise. Im selben Gebäude ist das Kulturzentrum und der Veranstaltungsort – ideal für Abende mit Konzertbeginn.</div>
 <div><span class="tag tg">Günstig</span><span class="tag tb">Kulturzentrum</span></div></div>
 
 <div class="card" data-cat="belg"><div class="ct">☕ Café Botteltje <span class="preis">€</span></div>
 <div class="cm">Centrum Oostende</div>
-<a href="https://maps.google.com/?q=Café+Botteltje+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Café+Botteltje+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Charmanter Pub mit riesiger Bierauswahl und belgischem Komfortessen. Hölzerne Tische, großer Kamin, Hunde willkommen. Abends beliebt bei Einheimischen.</div>
 <div><span class="tag tg">Gemütlich</span><span class="tag tr">Bierauswahl</span></div></div>
 
 <div class="card" data-cat="belg"><div class="ct">🎰 Brassi Casino Restaurant <span class="preis">€€€</span></div>
 <div class="cm">Monacoplein 1, Casino Kursaal</div>
-<a href="https://maps.google.com/?q=Casino+Kursaal+Oostende+Monacoplein+1" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Casino+Kursaal+Oostende+Monacoplein+1" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">"Verstecktes Juwel" im Casino Kursaal. Modernes Interieur, originelle Karte, Meerblick. Für einen besonderen Abend – etwas schicker anziehen!</div>
 <div><span class="tag ts">Gehoben</span><span class="tag tr">Meerblick</span></div></div>
 
@@ -472,47 +532,47 @@ a.weblink:hover{background:var(--teal);color:white}
 
 <div class="card" data-cat="intl"><div class="ct">🇮🇹 Restaurant Marina <span class="preis">€€</span></div>
 <div class="cm">Hendrik Baelskaai 7, Oosteroever</div>
-<a href="https://maps.google.com/?q=Restaurant+Marina+Hendrik+Baelskaai+7+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Restaurant+Marina+Hendrik+Baelskaai+7+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.resto-marina.be" target="_blank" class="weblink">🌐 resto-marina.be</a>
 <div class="cx">Legende in Oostende seit 1973! Ausgezeichnet mit dem offiziellen Label "Ristorante Italiano" der italienischen Regierung. Carpaccio, Pasta, Ossobuco – authentisch und sehr gut.</div>
 <div><span class="tag tr">Seit 1973!</span><span class="tag tb">Ital. Regierung zertifiziert</span></div></div>
 
 <div class="card" data-cat="intl"><div class="ct">🍣 Momochi Foodbar – Sushi <span class="preis">€€</span></div>
 <div class="cm">Kemmelbergstraat 20, Oostende</div>
-<a href="https://maps.google.com/?q=Momochi+Foodbar+Kemmelbergstraat+20+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Momochi+Foodbar+Kemmelbergstraat+20+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.momochifoodbar.be" target="_blank" class="weblink">🌐 momochifoodbar.be</a>
 <div class="cx">Seit März 2023 – frisches Sushi in Handarbeit von Chef Indra. Hosomaki, Nigiri, Sashimi, Futomaki und Dumplings. Einzigartiges Pand-Interieur. Auch Abholung möglich.</div>
 <div><span class="tag tb">Neu & hipp</span></div></div>
 
 <div class="card" data-cat="intl"><div class="ct">🌍 Mommy's Bastards <span class="preis">€</span></div>
 <div class="cm">Dwarsstraat 10, Oostende</div>
-<a href="https://maps.google.com/?q=Mommy+Bastards+Dwarsstraat+10+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Mommy+Bastards+Dwarsstraat+10+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.mommysbastards.be" target="_blank" class="weblink">🌐 mommysbastards.be</a>
 <div class="cx">Big-City-Vibes an der Nordsee! Vintage-Industrial-Interieur (die Toiletten wie eine echte Schiffskajüte!). Breite internationale Karte: Fish & Chips, Thunfisch-Pokébowl, Griechischer Lachsburger, Tapas zum Teilen. Die besten Nachos der Stadt!</div>
 <div><span class="tag tg">Günstig</span><span class="tag tr">International</span><span class="tag tb">Geheimtipp!</span></div></div>
 
 <div class="card" data-cat="intl"><div class="ct">🥗 Histoires d'O <span class="preis">€</span></div>
 <div class="cm">Zentrum Oostende (Strand/Meerblick)</div>
-<a href="https://maps.google.com/?q=Histoires+d+O+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Histoires+d+O+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Tapas, Burger, Salate, Cocktails und Pasta in hippem Vintage-Ambiente. Terras mit Meerblick! Ideal für einen entspannten Sommerabend.</div>
 <div><span class="tag tg">Günstig</span><span class="tag tr">Terrasse Meerblick</span></div></div>
 
 <div class="card" data-cat="intl"><div class="ct">🥩 Paroles Paroles <span class="preis">€€</span></div>
 <div class="cm">Brandariskaai 5 & 7, Oostende (Sky District)</div>
-<a href="https://maps.google.com/?q=Paroles+Paroles+Brandariskaai+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Paroles+Paroles+Brandariskaai+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.parolesparoles.be" target="_blank" class="weblink">🌐 parolesparoles.be</a>
 <div class="cx">Zwischen Jachthafen und Bahnhof: Frans-Italiaanse Küche mit mediterranen Einflüssen. Irischer Koch Terence McGarrity – eclektisches Interieur, gemütliche Nischen. Zusätzlich separates Weincafé eröffnet.</div>
 <div><span class="tag tr">Romantisch</span><span class="tag tb">Weinbar</span></div></div>
 
 <div class="card" data-cat="intl"><div class="ct">🍽 Frenchette <span class="preis">€€</span></div>
 <div class="cm">Zentrum Oostende</div>
-<a href="https://maps.google.com/?q=Frenchette+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Frenchette+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">"Frenchette c'est chouette!" – Sharing-Konzept in französ. Vintage-Interieur. Hippes Sharing-Food mit Schwung und originellen Zutaten.</div>
 <div><span class="tag tb">Sharing</span></div></div>
 
 <div class="card" data-cat="intl"><div class="ct">🥘 Gastrobar Sam <span class="preis">€€</span></div>
 <div class="cm">Zentrum Oostende</div>
-<a href="https://maps.google.com/?q=Gastrobar+Sam+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Gastrobar+Sam+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Biologisches Rindfleisch & nachtfrisch gefangener Fisch als Handelsmarke. Hausgemachte Garnaalkroketten und Sharing Dishes. Gute Weinauswahl.</div>
 <div><span class="tag tr">Bio & Frisch</span></div></div>
 
@@ -520,31 +580,31 @@ a.weblink:hover{background:var(--teal);color:white}
 
 <div class="card" data-cat="bistro"><div class="ct">🍷 l'Apéro Oostende <span class="preis">€</span></div>
 <div class="cm">Albert I-Promenade Bereich</div>
-<a href="https://maps.google.com/?q=l+Apero+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=l+Apero+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Das belgische Aperitif-Konzept: Wein, Häppchen, entspannte Atmosphäre. Ideal für lange Nachmittage mit Meerblick. Sehr beliebt bei Paaren!</div>
 <div><span class="tag tr">Aperitif</span><span class="tag tb">Romantisch</span></div></div>
 
 <div class="card" data-cat="bistro"><div class="ct">🧀 Le Bar du Bassin <span class="preis">€</span></div>
 <div class="cm">Hafennähe, Oostende</div>
-<a href="https://maps.google.com/?q=Le+Bar+du+Bassin+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Le+Bar+du+Bassin+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Sommelière Zoé Vanhaecke: Qualitätsweine, 20+ Käsesorten, feine Charcuterie. Van Tricht-Käse & Joka-Wurstwaren. Echter Geheimtipp für Genießer!</div>
 <div><span class="tag tb">Geheimtipp</span><span class="tag tr">Weinbar</span></div></div>
 
 <div class="card" data-cat="bistro"><div class="ct">🍷 Au Grenache <span class="preis">€€</span></div>
 <div class="cm">Zentrum Oostende</div>
-<a href="https://maps.google.com/?q=Au+Grenache+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Au+Grenache+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Exzellente Weinauswahl, kleine feine Speisekarte. Skandinavisches Interieur, täglich frische Gerichte. Ruhige Atmosphäre – gut für Abendessen ohne Trubel.</div>
 <div><span class="tag tb">Weinbar</span></div></div>
 
 <div class="card" data-cat="bistro"><div class="ct">☕ Lafayette Oostende <span class="preis">€</span></div>
 <div class="cm">"Montmartre von Oostende"</div>
-<a href="https://maps.google.com/?q=Lafayette+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Lafayette+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Seit 29 Jahren the place to be. Soul, Blues, Jazz, Reggae, Ska, Chansons – ein Café mit Seele. Belgische Biere, Cocktails, frischer Minztee. Legendäres Flair!</div>
 <div><span class="tag tg">Kultcafé</span><span class="tag tr">Musik & Bier</span></div></div>
 
 <div class="card" data-cat="bistro"><div class="ct">🌅 Panorama Restaurant <span class="preis">€€</span></div>
 <div class="cm">Hendrik Serruyslaan 18A (Dachterrasse De Grote Post)</div>
-<a href="https://maps.google.com/?q=Panorama+Restaurant+Hendrik+Serruyslaan+Oostende" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Panorama+Restaurant+Hendrik+Serruyslaan+Oostende" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Nur im Sommer bei gutem Wetter geöffnet! Panoramablick über ganz Oostende. Klassiker (Tomaat-Garnaal) und Meeresfrüchte mit Twist. Der schönste Ausblick der Stadt – früh reservieren!</div>
 <div><span class="tag ts">Nur Sommer</span><span class="tag tr">Schönste Aussicht</span></div></div>
 
@@ -566,7 +626,7 @@ a.weblink:hover{background:var(--teal);color:white}
   <div class="evbody">
     <div class="evtitle">🎡 Riesenrad Zeeheldenplein</div>
     <div class="evinfo">50 m hohes Riesenrad direkt am Meer · tägl. 10–22 Uhr · Tickets vor Ort
-    <br><a href="https://maps.google.com/?q=Zeeheldenplein+Oostende" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
+    <br><a href="geo:0,0?q=Zeeheldenplein+Oostende" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
     <div class="evbadge">Den ganzen Sommer!</div>
   </div>
 </div>
@@ -576,7 +636,7 @@ a.weblink:hover{background:var(--teal);color:white}
   <div class="evbody">
     <div class="evtitle">🛒 Abendmarkt Zeedijk Mariakerke</div>
     <div class="evinfo">Jeden Sonntag ab 17 Uhr: atmosphärischer Abendmarkt auf dem Zeedijk direkt vor eurer Unterkunft! Streetfood, lokale Produkte.
-    <br><a href="https://maps.google.com/?q=Zeedijk+Mariakerke+Oostende" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
+    <br><a href="geo:0,0?q=Zeedijk+Mariakerke+Oostende" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
     <div class="evbadge free">Kostenlos · Direkt vor Ort!</div>
   </div>
 </div>
@@ -586,7 +646,7 @@ a.weblink:hover{background:var(--teal);color:white}
   <div class="evbody">
     <div class="evtitle">🐎 Oostende Koerse – Pferderennen</div>
     <div class="evinfo">8 Montage · Wellington-Rennbahn · Musik, Sport & flämische Sommerstimmung direkt am Meer. Sehr belgisch, sehr schön!
-    <br><a href="https://maps.google.com/?q=Wellington+Rennbahn+Oostende" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a>
+    <br><a href="geo:0,0?q=Wellington+Rennbahn+Oostende" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a>
     <a href="https://www.hippo-oostende.be" target="_blank" class="weblink">🌐 hippo-oostende.be</a></div>
     <div class="evbadge">Jeden Montag</div>
   </div>
@@ -597,7 +657,7 @@ a.weblink:hover{background:var(--teal);color:white}
   <div class="evbody">
     <div class="evtitle">🎵 Aperitiefconcerten Wapenplein</div>
     <div class="evinfo">Jeden Sonntag 11 Uhr: kostenlose Konzerte mit lokalen Musikgruppen. Idealer Sonntags-Start.
-    <br><a href="https://maps.google.com/?q=Wapenplein+Oostende" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
+    <br><a href="geo:0,0?q=Wapenplein+Oostende" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
     <div class="evbadge free">Kostenlos · Jeden Sonntag</div>
   </div>
 </div>
@@ -616,7 +676,7 @@ a.weblink:hover{background:var(--teal);color:white}
   <div class="evbody">
     <div class="evtitle">🎵 Parkies Middelkerke – Sommerabende</div>
     <div class="evinfo">Jeden Donnerstagabend: kostenlose Open-Air-Konzerte im Normandpark Middelkerke · mit Kusttram erreichbar (ca. 20 Min.)
-    <br><a href="https://maps.google.com/?q=Normandpark+Middelkerke" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
+    <br><a href="geo:0,0?q=Normandpark+Middelkerke" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
     <div class="evbadge free">Kostenlos · Kusttram hin</div>
   </div>
 </div>
@@ -636,7 +696,7 @@ a.weblink:hover{background:var(--teal);color:white}
   <div class="evbody">
     <div class="evtitle">🏖 Belgische Sandburgen-Meisterschaft</div>
     <div class="evinfo">Strand Bredene (Strandpost 2 – het Dunegat) · Kunstwerke aus Sand von Profis & Hobbyisten. Familiäre Atmosphäre, idealer Samstagvormittag.
-    <br><a href="https://maps.google.com/?q=Strand+Bredene+Dunegat+België" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
+    <br><a href="geo:0,0?q=Strand+Bredene+Dunegat+België" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
     <div class="evbadge free">Kostenlos</div>
   </div>
 </div>
@@ -656,7 +716,7 @@ a.weblink:hover{background:var(--teal);color:white}
   <div class="evbody">
     <div class="evtitle">🌍 Afro C Festival Bredene</div>
     <div class="evinfo">Kostenloses Sommerfestival auf 't Paelsteenveld, Bredene. Afrikanische und internationale Musik, bunte Atmosphäre, direktes Meer.
-    <br><a href="https://maps.google.com/?q=Paelsteenveld+Bredene" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
+    <br><a href="geo:0,0?q=Paelsteenveld+Bredene" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
     <div class="evbadge free">Kostenlos</div>
   </div>
 </div>
@@ -666,7 +726,7 @@ a.weblink:hover{background:var(--teal);color:white}
   <div class="evbody">
     <div class="evtitle">🤠 Country Festival Middelkerke</div>
     <div class="evinfo">3 Tage Sonne, Meer und amerikanische Musikkultur in Middelkerke · mit Kusttram erreichbar.
-    <br><a href="https://maps.google.com/?q=Middelkerke+Strand+Country+Festival" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
+    <br><a href="geo:0,0?q=Middelkerke+Strand+Country+Festival" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
     <div class="evbadge">Kusttram direkt hin</div>
   </div>
 </div>
@@ -676,7 +736,7 @@ a.weblink:hover{background:var(--teal);color:white}
   <div class="evbody">
     <div class="evtitle">🔥 Fackelzug & Feuerwerk Westende</div>
     <div class="evinfo">Jährlicher Noordzeefackelzug mit spektakulärem Feuerwerk in Westende – Termin auf der Website prüfen!
-    <br><a href="https://maps.google.com/?q=Westende+Strand+Belgien" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
+    <br><a href="geo:0,0?q=Westende+Strand+Belgien" target="_blank" class="maplink" style="margin-left:0">📍 Maps</a></div>
     <div class="evbadge">Termin prüfen</div>
   </div>
 </div>
@@ -702,7 +762,7 @@ a.weblink:hover{background:var(--teal);color:white}
 <div class="bdiv"><span>🚃 Per Kusttram – die Küste entlang</span></div>
 
 <div class="card"><div class="ct">🚃 Kusttram – Die längste Straßenbahn der Welt</div>
-<a href="https://maps.google.com/?q=Kusttram+Haltestelle+Mariakerke+Oostende" target="_blank" class="maplink">📍 Haltestelle Mariakerke</a>
+<a href="geo:0,0?q=Kusttram+Haltestelle+Mariakerke+Oostende" target="_blank" class="maplink">📍 Haltestelle Mariakerke</a>
 <a href="https://www.kusttram.be" target="_blank" class="weblink">🌐 kusttram.be</a>
 <div class="cx">67 km von De Panne bis Knokke – 70 Haltestellen, Tagesticket ca. 8–10 €. Die ganze belgische Küste von der Tramfront aus erleben!<br><br>
 🔹 <strong>Knokke-Heist</strong> – elegantester Badeort (rechts)<br>
@@ -715,7 +775,7 @@ a.weblink:hover{background:var(--teal);color:white}
 <div class="bdiv"><span>🏛 Klassiker (30–60 km)</span></div>
 
 <div class="aucard"><div class="ct">🏰 Brügge / Brugge <span class="dist">ca. 30 km · 30 Min.</span></div>
-<a href="https://maps.google.com/?q=Brugge+Markt+Belgium" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Brugge+Markt+Belgium" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.visitbruges.be/de" target="_blank" class="weblink">🌐 visitbruges.be</a>
 <div class="cx">Das flämische Venedig – UNESCO-Welterbe. Mittelalterliche Kanäle, Zunfthäuser, Brauereien, Schokolade, Spitze. Absolutes Pflichtprogramm!<br><br>
 ⭐ <strong>Top-Tipps Brügge:</strong><br>
@@ -727,7 +787,7 @@ a.weblink:hover{background:var(--teal);color:white}
 <div><span class="tag tr">Pflicht!</span></div></div>
 
 <div class="aucard"><div class="ct">🏙 Gent <span class="dist">ca. 70 km · 55 Min.</span></div>
-<a href="https://maps.google.com/?q=Gent+Gravensteen+Belgien" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Gent+Gravensteen+Belgien" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.visitgent.be/de" target="_blank" class="weblink">🌐 visitgent.be</a>
 <div class="cx">Lebendiger als Brügge, weniger touristisch – eine echte Entdeckung! "Stadt der drei Türme".<br><br>
 ⭐ <strong>Top-Tipps Gent:</strong><br>
@@ -741,7 +801,7 @@ a.weblink:hover{background:var(--teal);color:white}
 <div><span class="tag tr">Sehr empfehlenswert!</span></div></div>
 
 <div class="aucard"><div class="ct">⚔️ Ypern / Ieper <span class="dist">ca. 55 km · 50 Min.</span></div>
-<a href="https://maps.google.com/?q=Ypern+Ieper+Menin+Gate" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Ypern+Ieper+Menin+Gate" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.visitieper.be/de" target="_blank" class="weblink">🌐 visitieper.be</a>
 <div class="cx">Weltberühmt für die Geschichte des Ersten Weltkriegs. Beeindruckend rekonstruierte mittelalterliche Stadt.<br><br>
 ⭐ <strong>Top-Tipps Ypern:</strong><br>
@@ -755,42 +815,42 @@ a.weblink:hover{background:var(--teal);color:white}
 <div class="bdiv"><span>🌊 Küste & Natur</span></div>
 
 <div class="aucard"><div class="ct">🏖 De Haan – Belle-Époque-Seebad <span class="dist">18 km · Kusttram</span></div>
-<a href="https://maps.google.com/?q=De+Haan+Strand+Belgien" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=De+Haan+Strand+Belgien" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.dehaan.be" target="_blank" class="weblink">🌐 dehaan.be</a>
 <div class="cx">Das charmanteste Seebad der Küste: historische Holzvillen, autofreies Centrum, malerischer Jugendstil-Bahnhof. Einstein lebte hier einst im Exil. Sehr ruhig, sehr elegant – ideal für einen Halbtagsausflug per Kusttram.</div>
 <div><span class="tag tr">Charme pur</span><span class="tag tb">Per Kusttram</span></div></div>
 
 <div class="aucard"><div class="ct">🌊 Naturschutzgebiet Het Zwin <span class="dist">ca. 65 km · 50 Min.</span></div>
-<a href="https://maps.google.com/?q=Het+Zwin+Naturschutzgebiet+Knokke" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Het+Zwin+Naturschutzgebiet+Knokke" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.zwin.be" target="_blank" class="weblink">🌐 zwin.be</a>
 <div class="cx">Einzigartiges Naturschutzgebiet an der belgisch-niederländischen Grenze (Knokke). 2,3 km breites Schutzgebiet für Watvögel, Schmetterlinge und seltene Dünenpflanzen. Naturzentrum + geführte Touren. Ideal für Vogelfreunde!</div>
 <div><span class="tag tr">Natur</span></div></div>
 
 <div class="aucard"><div class="ct">🐎 Oostduinkerke – Letzter Krabbenfischer zu Pferd <span class="dist">ca. 35 km · 35 Min.</span></div>
-<a href="https://maps.google.com/?q=Oostduinkerke+Krabbenvissers+te+paard" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Oostduinkerke+Krabbenvissers+te+paard" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">UNESCO-immaterielles Kulturerbe! Krabbenfischer auf Pferden ziehen durch die Brandung – eine der letzten derartigen Traditionen weltweit. Im Sommer regelmäßig zu beobachten. Dazu: NAVIGO Museum für Fischerei und Meereskunde.</div>
 <div><span class="tag tr">UNESCO!</span><span class="tag tb">Einzigartig</span></div></div>
 
 <div class="aucard"><div class="ct">🌿 Naturpark Zandpanne / De Haan <span class="dist">ca. 20 km</span></div>
-<a href="https://maps.google.com/?q=Naturschutzgebiet+Zandpanne+De+Haan" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Naturschutzgebiet+Zandpanne+De+Haan" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Wertvolles Dünengebiet zwischen Wenduine und De Haan: offene Dünen, Dünenwälder, feuchte Dünentäler. Schöne Rad- und Wanderwege abseits des Strandtrubels.</div>
 <div><span class="tag tr">Natur & Ruhe</span></div></div>
 
 <div class="bdiv"><span>🏙 Etwas weiter (60–70 km)</span></div>
 
 <div class="aucard"><div class="ct">⚓ Antwerpen <span class="dist">ca. 110 km · 1,5 Std. (Tagesausflug+)</span></div>
-<a href="https://maps.google.com/?q=Antwerpen+Grote+Markt+Belgium" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Antwerpen+Grote+Markt+Belgium" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.visitantwerpen.be/de" target="_blank" class="weblink">🌐 visitantwerpen.be</a>
 <div class="cx">Hafen-Metropole mit "schönstem Bahnhof der Welt", Liebfrauenkathedrale, Rubenshuis, MAS-Museum. Diamond Quarter & beste Restaurants. Für einen langen Tagesausflug perfekt!</div>
 <div><span class="tag tn">Etwas weiter</span></div></div>
 
 <div class="aucard"><div class="ct">🇫🇷 Dünkirchen / Dunkerque <span class="dist">ca. 50 km · 45 Min. (Frankreich!)</span></div>
-<a href="https://maps.google.com/?q=Dunkirk+France+Museum" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Dunkirk+France+Museum" target="_blank" class="maplink">📍 Maps</a>
 <div class="cx">Kleiner Abstecher nach Frankreich! Berühmt durch die Evakuierung von 300.000 Soldaten 1940. Musée Dunkerque 1940 + Skulpturenpark. Flandrisches Bier auch in Frankreich günstig – und französische Küche!</div>
 <div><span class="tag tb">Länderwechsel!</span></div></div>
 
 <div class="aucard"><div class="ct">🍺 Poperinge – Hopfenstadt Belgiens <span class="dist">ca. 65 km · 55 Min.</span></div>
-<a href="https://maps.google.com/?q=Poperinge+Belgium+Hopmuseum" target="_blank" class="maplink">📍 Maps</a>
+<a href="geo:0,0?q=Poperinge+Belgium+Hopmuseum" target="_blank" class="maplink">📍 Maps</a>
 <a href="https://www.toerismepoperinge.be" target="_blank" class="weblink">🌐 toerismepoperinge.be</a>
 <div class="cx">Die Hopfenhauptstadt Belgiens und Welthauptstadt des Hopfens! Hopmuseum, malerische Altstadt. In der Nähe liegen Pachelbel-Stimmung, WWI-Friedhöfe und das Talbot House (Soldatenheim 1915). Bierliebhaber-Geheimtipp!</div>
 <div><span class="tag tb">Geheimtipp!</span><span class="tag tg">Bierkultur</span></div></div>
@@ -801,6 +861,7 @@ a.weblink:hover{background:var(--teal);color:white}
 <!-- TAGEBUCH -->
 <div id="tagebuch" class="sec">
 <div class="sh">📖 Reisetagebuch</div><div class="ssh">La mémoire du voyage – Erinnerungen für immer</div>
+<button onclick="openExport()" style="display:flex;align-items:center;gap:10px;background:#1a6b6b;color:white;border:none;border-radius:8px;padding:14px 20px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;justify-content:center;margin-bottom:16px;min-height:56px">&#x1F4E4; Erinnerungen sichern (Export)</button>
 <div id="dcontainer"></div>
 <div class="nsp"></div>
 </div>
@@ -880,19 +941,24 @@ a.weblink:hover{background:var(--teal);color:white}
 <!-- SOS -->
 <div id="sos" class="sec">
 <div class="sh">🆘 SOS & Notfall</div><div class="ssh">Wichtige Nummern auf einen Blick</div>
-<div class="card" style="border:2px solid var(--red)"><div class="ct">☎️ Wichtige Nummern</div><div class="cx">
-🚨 <strong>EU-Notruf:</strong> 112<br>
-👮 <strong>Polizei Belgien:</strong> 101<br>
-🚑 <strong>Krankenwagen:</strong> 100<br>
-🏥 <strong>AZ Delta Oostende</strong> · Nobels-straat · Tel: 059 55 30 00<br>
-🇩🇪 <strong>Deutsche Botschaft Brüssel:</strong> +32 2 787 18 00<br>
-🪪 EHIC/GHIC Europäische Krankenversicherungskarte einpacken!
-</div></div>
-<div class="card"><div class="ct">🚗 Autopanne & ADAC</div><div class="cx">
-ADAC Pannenhilfe Ausland: <strong>+49 89 22 22 22</strong><br>
-Touring Belgien (kostenlos): <strong>0800 99 299</strong><br>
-Warndreieck & Warnweste Pflicht in Belgien!
-</div></div>
+<div class="card" style="border:2px solid var(--red)">
+<div class="ct">&#x260E;&#xFE0F; Notrufnummern &#x2013; einfach antippen!</div>
+<div style="display:flex;flex-direction:column;gap:5px;margin-top:8px">
+<a href="tel:112" style="display:flex;align-items:center;gap:8px;color:var(--red);font-weight:700;text-decoration:none;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:.97rem;min-height:52px;margin:3px 0;width:100%">&#x1F6A8; 112 &#x2013; EU-Notruf (Polizei, Feuerwehr, Rettung)</a>
+<a href="tel:101" style="display:flex;align-items:center;gap:8px;color:var(--red);font-weight:700;text-decoration:none;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:.97rem;min-height:52px;margin:3px 0;width:100%">&#x1F46E; 101 &#x2013; Polizei Belgien</a>
+<a href="tel:100" style="display:flex;align-items:center;gap:8px;color:var(--red);font-weight:700;text-decoration:none;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:.97rem;min-height:52px;margin:3px 0;width:100%">&#x1F691; 100 &#x2013; Krankenwagen Belgien</a>
+<a href="tel:+3259553000" style="display:flex;align-items:center;gap:8px;color:var(--red);font-weight:700;text-decoration:none;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:.97rem;min-height:52px;margin:3px 0;width:100%">&#x1F3E5; 059 55 30 00 &#x2013; AZ Delta Oostende</a>
+<a href="tel:+3227871800" style="display:flex;align-items:center;gap:8px;color:var(--red);font-weight:700;text-decoration:none;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:10px 14px;font-size:.97rem;min-height:52px;margin:3px 0;width:100%">&#x1F1E9;&#x1F1EA; +32 2 787 18 00 &#x2013; Deutsche Botschaft Br&#xFC;ssel</a>
+</div>
+<div class="cx" style="margin-top:10px">&#x1FAA6; EHIC/GHIC einpacken!</div>
+</div>
+<div class="card"><div class="ct">🚗 Autopanne &amp; ADAC</div>
+<div style="display:flex;flex-direction:column;gap:5px;margin-top:8px">
+<a href="tel:+4989222222" style="display:flex;align-items:center;gap:8px;color:#1a3a6e;font-weight:700;text-decoration:none;background:rgba(26,58,110,.08);border:1px solid rgba(26,58,110,.25);border-radius:8px;padding:10px 14px;font-size:.97rem;min-height:52px;margin:3px 0;width:100%">&#x1F527; +49 89 22 22 22 &#x2013; ADAC Pannenhilfe Ausland</a>
+<a href="tel:080099299" style="display:flex;align-items:center;gap:8px;color:#1a3a6e;font-weight:700;text-decoration:none;background:rgba(26,58,110,.08);border:1px solid rgba(26,58,110,.25);border-radius:8px;padding:10px 14px;font-size:.97rem;min-height:52px;margin:3px 0;width:100%">&#x1F527; 0800 99 299 &#x2013; Touring Belgien (kostenlos)</a>
+</div>
+<div class="cx" style="margin-top:8px">Warndreieck &amp; Warnweste Pflicht in Belgien!</div>
+</div>
 <div class="card"><div class="ct">🌐 Wichtige Links</div><div class="cx">
 <a href="https://www.visitoostende.be" target="_blank" class="weblink">🌐 visitoostende.be</a>
 <a href="https://www.kusttram.be" target="_blank" class="weblink">🌐 kusttram.be</a>
@@ -908,8 +974,18 @@ Warndreieck & Warnweste Pflicht in Belgien!
   <button class="nb" id="nb-events" onclick="openSec('events')"><span class="ni">🎪</span><span class="nl">Events</span></button>
   <button class="nb" id="nb-more" onclick="toggleMore()"><span class="ni">☰</span><span class="nl">Mehr</span></button>
 </div>
-<div class="mmenu" id="mmenu">
-  <div class="mmi" onclick="openSec('sehenswuerdigkeiten')"><span class="mmii">🏛</span><span class="mmil">Sights</span></div>
+<div class="morepanel" id="morepanel">
+  <div class="mpitem" onclick="openSec('sehenswuerdigkeiten')"><span class="mpico">&#x1F3DB;</span>Sehenswürdigkeiten &amp; Must-Sees</div>
+  <div class="mpitem" onclick="openSec('strand')"><span class="mpico">&#x1F3D6;</span>Strand &amp; Meer</div>
+  <div class="mpitem" onclick="openSec('ausfл&#xFC;ge')"><span class="mpico">&#x1F697;</span>Ausflüge (70 km Umkreis)</div>
+  <div class="mpitem" onclick="openSec('uebersicht')"><span class="mpico">&#x1F5FA;</span>Anreise &amp; Unterkunft</div>
+  <div class="mpitem" onclick="openSec('budget')"><span class="mpico">&#x1F4B6;</span>Budget-Tracker</div>
+  <div class="mpitem" onclick="openSec('tagebuch')"><span class="mpico">&#x1F4D6;</span>Reisetagebuch</div>
+  <div class="mpitem" onclick="openSec('checklist')"><span class="mpico">&#x2705;</span>Packliste &amp; Checkliste</div>
+  <div class="mpitem" onclick="openSec('regen')"><span class="mpico">&#x2614;</span>Regentag-Plan</div>
+  <div class="mpitem" onclick="openSec('tipps')"><span class="mpico">&#x1F4A1;</span>Insider-Tipps</div>
+  <div class="mpitem" onclick="openSec('sos')"><span class="mpico">&#x1F198;</span>SOS &amp; Notfall</div>
+</div>
   <div class="mmi" onclick="openSec('strand')"><span class="mmii">🏖</span><span class="mmil">Strand</span></div>
   <div class="mmi" onclick="openSec('ausflüge')"><span class="mmii">🚗</span><span class="mmil">Ausflüge</span></div>
   <div class="mmi" onclick="openSec('budget')"><span class="mmii">💶</span><span class="mmil">Budget</span></div>
@@ -922,6 +998,8 @@ Warndreieck & Warnweste Pflicht in Belgien!
 </div>
 
 <script>
+// Hero-Start: body blockiert Scrollen solange Hero sichtbar
+document.body.classList.add('hero-active');
 // ══ DARK MODE ══
 var DARK = localStorage.getItem('oo26_dark') === '1';
 function applyDarkMode(){document.documentElement.classList.toggle('dark',DARK);var b=document.getElementById('dm-toggle');if(b)b.textContent=DARK?'☀️ Hell':'🌙 Dark';}
@@ -955,7 +1033,7 @@ function closeMenu(e){if(!e||e.target===document.getElementById('moverlay'))docu
 function openSec(id){
   document.getElementById('moverlay').classList.remove('open');
   if(MORE)toggleMore();
-  document.getElementById('hero').style.display='none';
+  var hero=document.getElementById('hero');hero.style.display='none';document.body.classList.remove('hero-active');
   document.getElementById('appinner').classList.add('vis');
   document.getElementById('bnav').classList.add('vis');
   var ti=document.getElementById('ititle');if(ti)ti.innerHTML=TITLES[id]||'Oostende 2026';
@@ -970,13 +1048,14 @@ function openSec(id){
   if(id==='tagebuch')loadDiary();
 }
 function goHome(){
-  document.getElementById('hero').style.display='';
+  document.getElementById('hero').style.display='flex';
   document.getElementById('appinner').classList.remove('vis');
   document.getElementById('bnav').classList.remove('vis');
+  document.body.classList.add('hero-active');
   if(MORE)toggleMore();
   window.scrollTo(0,0);
 }
-function toggleMore(){MORE=!MORE;document.getElementById('mmenu').classList.toggle('open',MORE);document.getElementById('nb-more').classList.toggle('active',MORE);}
+function toggleMore(){MORE=!MORE;document.getElementById('morepanel').classList.toggle('open',MORE);document.getElementById('nb-more').classList.toggle('active',MORE);}
 
 // ══ WETTER ══
 async function loadWeather(){
@@ -998,7 +1077,7 @@ async function loadWeather(){
 function wCode(c){var m={0:'☀️ Sonnig',1:'🌤 Überwiegend klar',2:'⛅ Teilbewölkt',3:'☁️ Bedeckt',45:'🌫 Neblig',51:'🌦 Leichter Niesel',61:'🌧 Leichter Regen',63:'🌧 Regen',65:'🌧 Starker Regen',80:'🌦 Schauer',81:'🌧 Kräftige Schauer',95:'⛈ Gewitter'};return m[c]||'Wetterdaten';}
 
 // ══ TOAST ══
-function showToast(msg){var t=document.createElement('div');t.textContent=msg;t.style.cssText='position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#1a6b6b;color:white;padding:8px 18px;border-radius:20px;font-family:Source Sans 3,sans-serif;font-size:.82rem;font-weight:600;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.3)';document.body.appendChild(t);setTimeout(function(){t.remove();},2500);}
+function showToast(msg){var o=document.getElementById('_oo_t');if(o)o.remove();var t=document.createElement('div');t.id='_oo_t';t.innerHTML='<span style="font-size:1.3rem">&#x2705;</span><span>'+msg+'</span>';t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#155724;color:#d4edda;padding:14px 24px;border-radius:12px;font-size:1.05rem;font-weight:700;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,.35);display:flex;align-items:center;gap:10px;max-width:90vw;border:2px solid #28a745';document.body.appendChild(t);setTimeout(function(){if(t.parentNode)t.remove();},4000);}
 
 // ══ BUDGET ══
 var BK='oo26_budget';
@@ -1104,6 +1183,74 @@ function filterRest(cat,btn){
     }
   });
 }
+
+// ══ #1 SCHRIFTGROESSE A+/A- ══
+var FS_STEPS=[.85,.9,.95,1,1.06,1.12,1.2,1.3];
+var FS_IDX=parseInt(localStorage.getItem('oo26_fs')||'3',10);
+function applyFS(){document.documentElement.style.setProperty('--fs',FS_STEPS[FS_IDX]+'rem');localStorage.setItem('oo26_fs',String(FS_IDX));}
+function changeFontSize(dir){FS_IDX=Math.max(0,Math.min(FS_STEPS.length-1,FS_IDX+dir));applyFS();showToast(dir>0?'Schrift vergroessert':'Schrift verkleinert');}
+applyFS();
+
+// ══ #6 BUDGET SCHNELL-BUTTONS ══
+function addQuick(n){var f=document.getElementById('bamt');f.value=((parseFloat(f.value)||0)+n).toFixed(2);}
+
+// ══ #7 TAGEBUCH EXPORT ══
+function openExport(){
+  var d=getDiaryData();
+  var lines=['OOSTENDE 2026 - Reiseerinnerungen von Marlene & Michael','='.repeat(50),''];
+  var any=false;
+  DAYS.forEach(function(day,i){
+    var e=d['day'+i]||{};
+    if(e.text&&e.text.trim()){
+      any=true;
+      var s=e.stars>0?'*'.repeat(e.stars):'';
+      lines.push('['+day.label+'] '+day.date+(s?' '+s:''));
+      lines.push(e.text.trim());
+      lines.push('');
+    }
+  });
+  if(!any)lines.push('Noch keine Eintraege vorhanden. Viel Spass im Urlaub!');
+  document.getElementById('export-ta').value=lines.join('\n');
+  document.getElementById('export-modal').style.display='flex';
+}
+function closeExport(){document.getElementById('export-modal').style.display='none';}
+
+// ══ #8 WETTER CACHE FALLBACK ══
+var WC_KEY='oo26_wc';
+var _origLoadWeather=loadWeather;
+loadWeather=async function(){
+  document.getElementById('wdesc').textContent='Wird geladen...';
+  var nc=document.getElementById('wcache-note');if(nc)nc.textContent='';
+  try{
+    var r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=51.2334&longitude=2.8909&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&daily=sunrise,sunset&timezone=Europe%2FBrussels');
+    if(!r.ok)throw new Error('HTTP');
+    var data=await r.json();var cu=data.current;
+    var rise='-',wset='-';
+    if(data.daily){
+      rise=new Date(data.daily.sunrise[0]).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr';
+      wset=new Date(data.daily.sunset[0]).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Uhr';
+    }
+    var w={temp:Math.round(cu.temperature_2m),desc:wCode(cu.weather_code),hum:cu.relative_humidity_2m,wind:Math.round(cu.wind_speed_10m),feel:Math.round(cu.apparent_temperature),rise:rise,wset:wset,ts:new Date().toLocaleString('de-DE')};
+    localStorage.setItem(WC_KEY,JSON.stringify(w));
+    _applyWeather(w,false);
+  }catch(ex){
+    var c=null;try{c=JSON.parse(localStorage.getItem(WC_KEY)||'null');}catch(e){}
+    if(c){_applyWeather(c,true);}
+    else{document.getElementById('wtemp').textContent='-C';document.getElementById('wdesc').textContent='Offline - kein Cache';}
+  }
+};
+function _applyWeather(w,fromCache){
+  document.getElementById('wtemp').textContent=w.temp+'C';
+  document.getElementById('wdesc').textContent=w.desc;
+  document.getElementById('whum').textContent=w.hum;
+  document.getElementById('wwind').textContent=w.wind;
+  document.getElementById('wfeel').textContent=w.feel;
+  document.getElementById('wrise').textContent=w.rise;
+  document.getElementById('wset').textContent=w.wset;
+  var nc=document.getElementById('wcache-note');
+  if(nc)nc.textContent=fromCache?'Letztes Update: '+w.ts:'';
+}
+
 </script>
 </body>
 </html>
